@@ -16,28 +16,37 @@ const Home = connect(state => {
     <center>
       <form>
         <div className="row">
-          <div className="twelve columns">
-            <input value={props.state.picPrefix} onChange={evt => actions.app.urlChanged(evt)} className="u-full-width" placeholder="https://fifthsigma.com" id="getPicsUrl" type="text" />
+          <div className="eight columns">
+            <input value={props.state.picPrefix} onChange={evt => actions.app.urlChanged(evt)} className="twelve columns" placeholder="https://fifthsigma.com" id="getPicsUrl" type="text" />
+          </div>
+          <div className="four columns">
+            <button className="buttonPrimary twelve columns" type="button" onClick={() => actions.app.collectPicNamesAndDisplay(props.state.picPrefix)}>View Pictures</button>
           </div>
         </div>
-        <button className="button-primary" type="button" onClick={() => actions.app.collectPicNamesAndDisplay(props.state.picPrefix)}>Get Pictures from There</button>
       </form>
+
+      <div className="bannerMessage">
+        Ensure you have:
+        <code>Header set Access-Control-Allow-Origin *</code>
+        <br />
+        You can put it in your .htaccess on the site that has images to view.
+      </div>
 
       <h1>Some Sample URLs</h1>
 
       <div className="row">
         <div className="six columns">
-          <Link to="/url=https://faemalia.com/Fractals/Mandelbulber/"><button className="button-primary twelve columns">Mandelbulber</button></Link>
-          <Link to="/url=https://faemalia.com/Fractals/Sterling_and_Tierazon/0_Zeroeth/"><button className="button-primary twelve columns">Sterling_and_Tierazon/0_Zeroeth/</button></Link>
-          <Link to="/url=https://faemalia.com/Fractals/Sterling_and_Tierazon/1_First/"><button className="button-primary twelve columns">Sterling_and_Tierazon/1_First/</button></Link>
-          <Link to="/url=https://faemalia.com/Fractals/Sterling_and_Tierazon/2_Second/"><button className="button-primary twelve columns">Sterling_and_Tierazon/2_Second/</button></Link>
-          <Link to="/url=https://faemalia.com/Fractals/Sterling_and_Tierazon/3_Third/"><button className="button-primary twelve columns">Sterling_and_Tierazon/3_Third/</button></Link>
+          <Link to="/url=https://faemalia.com/Fractals/Mandelbulber/"><button className="buttonPrimary twelve columns">Mandelbulber</button></Link>
+          <Link to="/url=https://faemalia.com/Fractals/Sterling_and_Tierazon/0_Zeroeth/"><button className="buttonPrimary twelve columns">Sterling_and_Tierazon/0_Zeroeth/</button></Link>
+          <Link to="/url=https://faemalia.com/Fractals/Sterling_and_Tierazon/1_First/"><button className="buttonPrimary twelve columns">Sterling_and_Tierazon/1_First/</button></Link>
+          <Link to="/url=https://faemalia.com/Fractals/Sterling_and_Tierazon/2_Second/"><button className="buttonPrimary twelve columns">Sterling_and_Tierazon/2_Second/</button></Link>
+          <Link to="/url=https://faemalia.com/Fractals/Sterling_and_Tierazon/3_Third/"><button className="buttonPrimary twelve columns">Sterling_and_Tierazon/3_Third/</button></Link>
         </div>
         <div className="six columns">
-          <Link to="/url=https://faemalia.com/Fractals/Modern_Gnofract/4_Fourth/"><button className="button-primary twelve columns">Modern_Gnofract/4_Fourth/</button></Link>
-          <Link to="/url=https://faemalia.com/Fractals/Modern_Gnofract/5_Fifth/"><button className="button-primary twelve columns">Modern_Gnofract/5_Fifth/</button></Link>
-          <Link to="/url=https://faemalia.com/Fractals/Modern_Gnofract/6_Sixth/"><button className="button-primary twelve columns">Modern_Gnofract/6_Sixth/</button></Link>
-          <Link to="/url=https://faemalia.com/Fractals/Modern_Gnofract/7_Seventh/"><button className="button-primary twelve columns">Modern_Gnofract/7_Seventh/</button></Link>
+          <Link to="/url=https://faemalia.com/Fractals/Modern_Gnofract/4_Fourth/"><button className="buttonPrimary twelve columns">Modern_Gnofract/4_Fourth/</button></Link>
+          <Link to="/url=https://faemalia.com/Fractals/Modern_Gnofract/5_Fifth/"><button className="buttonPrimary twelve columns">Modern_Gnofract/5_Fifth/</button></Link>
+          <Link to="/url=https://faemalia.com/Fractals/Modern_Gnofract/6_Sixth/"><button className="buttonPrimary twelve columns">Modern_Gnofract/6_Sixth/</button></Link>
+          <Link to="/url=https://faemalia.com/Fractals/Modern_Gnofract/7_Seventh/"><button className="buttonPrimary twelve columns">Modern_Gnofract/7_Seventh/</button></Link>
         </div>
       </div>
 

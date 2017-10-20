@@ -7,9 +7,9 @@
 * 12/29/2014
 */
 
-
 /* Table of contents
 ––––––––––––––––––––––––––––––––––––––––––––––––––
+- imageViewerStuff
 - Grid
 - Base Styles
 - Typography
@@ -25,15 +25,112 @@
 - Media Queries
 */
 
+/* imageViewerStuff
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .centering {
   text-align: center;
 }
 
-img.mainImg {
+.veryTop {
+  z-index: 100;
+}
+
+.noTransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+.helpMenuVisible {
+  position: fixed;
+  font-size: 2vh;
+  font-color: #000;
+  left: 50%;
+  top: 70%;
+  width: 100%;
+  background: #eee;
+  opacity: 0.8;
+  transform: translate(-50%, 60%);
+  z-index: 99;
+}
+
+.helpMenuInvisible {
+  position: fixed;
+  font-size: 2vh;
+  left: 50%;
+  top: 70%;
+  width: 100%;
+  background: #eee;
+  opacity: 0;
+  transform: translate(-50%, 350%);
+}
+
+/* hide fake input from people */
+.fakeInput { border: none; height: 1px; width: 1px; font-size: 0%; opacity: 0; }
+.fakeInput:focus { border: none; outline: none; }
+
+.fadeImg {
+  -webkit-transition: opacity 0.5s, position 0.5s, transform 0.5s; /* Safari */
+  -moz-transition: opacity 0.5s, position 0.5s, transform 0.5s; /* Firefox */
+  transition: opacity 0.5s, position 0.5s, transform 0.5s;
+}
+
+.mainImageDiv {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.mainImgVisible {
+  opacity: 1;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: auto;
   height: auto;
   max-width: 100vw;
   max-height: 100vh;
+}
+
+.mainImgInvisibleLeft {
+  opacity: 0;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-80%, -50%);
+  width: auto;
+  height: auto;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+.mainImgInvisibleRight {
+  opacity: 0;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-20%, -50%);
+  width: auto;
+  height: auto;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+.bannerMessage {
+  width: 100%;
+  font-size: 110%;
+  border-top: 1px solid #ba8;
+  border-bottom: 1px solid #ba8;
+  background-color: #fe8;
+  margin: 8px 0 8px 0;
+}
+
+.hiddenThing {
+  visibility: hidden;
 }
 
 /* Grid
@@ -171,9 +268,9 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #1EAEDB; }
+  color: #10c850; }
 a:hover {
-  color: #0FA0CE; }
+  color: #1eb060; }
 
 
 /* Buttons
@@ -193,7 +290,7 @@ input[type="button"] {
   letter-spacing: .1rem;
   text-decoration: none;
   white-space: nowrap;
-  background-color: #b0f0ff;
+  background-color: #d0f0d0;
   border-radius: 4px;
   border: 1px solid #bbb;
   cursor: pointer;
@@ -211,28 +308,28 @@ input[type="button"]:focus {
   color: #333;
   border-color: #888;
   outline: 0; }
-.button.button-primary,
-button.button-primary,
-input[type="submit"].button-primary,
-input[type="reset"].button-primary,
-input[type="button"].button-primary {
+.button.buttonPrimary,
+button.buttonPrimary,
+input[type="submit"].buttonPrimary,
+input[type="reset"].buttonPrimary,
+input[type="button"].buttonPrimary {
   font-weight: 600;
   color: #FFF;
-  background-color: #33C3F0;
-  border-color: #33C3F0; }
-.button.button-primary:hover,
-button.button-primary:hover,
-input[type="submit"].button-primary:hover,
-input[type="reset"].button-primary:hover,
-input[type="button"].button-primary:hover,
-.button.button-primary:focus,
-button.button-primary:focus,
-input[type="submit"].button-primary:focus,
-input[type="reset"].button-primary:focus,
-input[type="button"].button-primary:focus {
+  background-color: #20d870;
+  border-color: #08a020; }
+.button.buttonPrimary:hover,
+button.buttonPrimary:hover,
+input[type="submit"].buttonPrimary:hover,
+input[type="reset"].buttonPrimary:hover,
+input[type="button"].buttonPrimary:hover,
+.button.buttonPrimary:focus,
+button.buttonPrimary:focus,
+input[type="submit"].buttonPrimary:focus,
+input[type="reset"].buttonPrimary:focus,
+input[type="button"].buttonPrimary:focus {
   color: #FFF;
-  background-color: #1EAEDB;
-  border-color: #1EAEDB; }
+  background-color: #10c850;
+  border-color: #08a020; }
 
 
 /* Forms
@@ -278,7 +375,7 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 textarea:focus,
 select:focus {
-  border: 1px solid #33C3F0;
+  border: 1px solid #20d870;
   outline: 0; }
 label,
 legend {
@@ -319,13 +416,13 @@ li {
 /* Code
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 code {
-  padding: .2rem .5rem;
+  padding: .4rem .3rem;
   margin: 0 .2rem;
   font-size: 90%;
   white-space: nowrap;
   background: #F1F1F1;
   border: 1px solid #E1E1E1;
-  border-radius: 4px; }
+  border-radius: 3px; }
 pre > code {
   display: block;
   padding: 1rem 1.5rem;
@@ -371,15 +468,15 @@ form {
 
 /* Utilities
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.u-full-width {
+.uFullWidth {
   width: 100%;
   box-sizing: border-box; }
-.u-max-full-width {
+.uMaxFullWidth {
   max-width: 100%;
   box-sizing: border-box; }
-.u-pull-right {
+.uPullRight {
   float: right; }
-.u-pull-left {
+.uPullLeft {
   float: left; }
 
 
